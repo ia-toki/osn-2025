@@ -7,13 +7,15 @@ Problem repository of **OSN 2025** (also known internationally as **TOKI Indones
 
 ## Problems
 
-| Alias       | Slug                             | Title (id)            | Title (en)            | Type        |
-| ----------- | -------------------------------- | --------------------- | --------------------- | ----------- |
-| Semifinal A | `osn-2025-semifinal-gulali`      | Gulali 17-an          | N/A                   | Batch       |
-| Semifinal B | `osn-2025-semifinal-juragan`     | Juragan Bebek         | N/A                   | Batch       |
-| Semifinal C | `osn-2025-semifinal-spiral`      | Kebun Apel            | N/A                   | Batch (\*)  |
+### Semifinal
 
-(\*) with partial scoring 
+| Alias | Slug                             | Title (id)            | Title (en)            | Type                        |
+| ----- | -------------------------------- | --------------------- | --------------------- | --------------------------- |
+| SF-A  | `osn-2025-semifinal-gulali`      | Gulali 17-an          | N/A                   | Batch                       |
+| SF-B  | `osn-2025-semifinal-juragan`     | Juragan Bebek         | N/A                   | Batch                       |
+| SF-C  | `osn-2025-semifinal-spiral`      | Kebun Apel            | N/A                   | Batch (w/ partial scoring)  |
+
+### Final
 
 | Alias | Slug                  | Title (id)                         | Title (en)               | Type        |
 | ----- | --------------------- | ---------------------------------- | ------------------------ | ----------- |
@@ -23,17 +25,21 @@ Problem repository of **OSN 2025** (also known internationally as **TOKI Indones
 | 1B    | `osn-2025-hujan`      | Taman Hujan                        | Rain Park                | Batch       |
 | 1A    | `osn-2025-tarik`      | Larik Tarik                        | Twist List               | Batch       |
 | 1C    | `osn-2025-mikroba`    | Mikroba Brantas                    | Brantas Microbes         | Interactive |
-| 1A    | `osn-2025-kpk`        | Festival KPK                       | LCM Festival             | Batch       |
-| 1B    | `osn-2025-resonansi`  | Pertahanan Malang                  | Malang Defense           | Batch       |
-| 1C    | `osn-2025-xor`        | Tukar XOR                          | XOR Exchange             | Batch       |
+| 2A    | `osn-2025-kpk`        | Festival KPK                       | LCM Festival             | Batch       |
+| 2B    | `osn-2025-resonansi`  | Pertahanan Malang                  | Malang Defense           | Batch       |
+| 2C    | `osn-2025-xor`        | Tukar XOR                          | XOR Exchange             | Batch       |
 
 ## Credits
 
-| Alias       | Slug                             | Problem Author(s)                         | Developer(s)                              |
-| ----------- | -------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Semifinal A | `osn-2025-semifinal-gulali`      | Mushthofa                                 | Mushthofa                                 |
-| Semifinal B | `osn-2025-semifinal-juragan`     | Ashar Fuadi                               | Ashar Fuadi                               |
-| Semifinal C | `osn-2025-semifinal-spiral`      | Ammar Fathin Sabili                       | Ammar Fathin Sabili                       |
+### Semifinal
+
+| Alias | Slug                             | Problem Author(s)                         | Developer(s)                              |
+| ----- | -------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| SF-A  | `osn-2025-semifinal-gulali`      | Mushthofa                                 | Mushthofa                                 |
+| SF-B  | `osn-2025-semifinal-juragan`     | Ashar Fuadi                               | Ashar Fuadi                               |
+| SF-C  | `osn-2025-semifinal-spiral`      | Ammar Fathin Sabili                       | Ammar Fathin Sabili                       |
+
+### Final
 
 | Alias | Slug                  | Problem Author(s)                         | Developer(s)                              |
 | ----- | --------------------- | ----------------------------------------- | ----------------------------------------- |
@@ -43,17 +49,17 @@ Problem repository of **OSN 2025** (also known internationally as **TOKI Indones
 | 1A    | `osn-2025-hujan`      | Maximilliano Utomo Quok                   | Maximilliano Utomo Quok                   |
 | 1B    | `osn-2025-tarik`      | Prabowo Djonatan                          | Alfonsus Raditya Arsadjaja                |
 | 1C    | `osn-2025-mikroba`    | Ammar Fathin Sabili                       | Ammar Fathin Sabili                       |
-| 1A    | `osn-2025-kpk`        | Andrew                                    | Andrew                                    |
-| 1B    | `osn-2025-resonansi`  | Maximilliano Utomo Quok                   | Maximilliano Utomo Quok                   |
-| 1C    | `osn-2025-xor`        | Prabowo Djonatan                          | Prabowo Djonatan                          |
+| 2A    | `osn-2025-kpk`        | Andrew                                    | Andrew                                    |
+| 2B    | `osn-2025-resonansi`  | Maximilliano Utomo Quok                   | Maximilliano Utomo Quok                   |
+| 2C    | `osn-2025-xor`        | Prabowo Djonatan                          | Prabowo Djonatan                          |
 
 Ashar Fuadi and Joel Gunawan also developed unpublished (backup) problems.
 
 ## Upsolving and Editorial
 
-The problem statements and upsolving are available [on TLX](https://tlx.toki.id/problems/osn-2025).
+The problem statements and upsolving are available on TLX: [Semifinal](https://tlx.toki.id/problems/osn-2025-semifinal) / [Final](https://tlx.toki.id/problems/osn-2025).
 
-The editorial can also be found on the same link.
+The editorial may also be found on the same link.
 
 ## Problem Structure Repository
 
