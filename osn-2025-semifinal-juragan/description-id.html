@@ -1,0 +1,176 @@
+<h3>Deskripsi</h3>
+
+<p>
+    Pak Dengklek memiliki usaha penyewaan ruko yang terdiri atas $N$ unit, dinomori $1$ hingga $N$.
+    Biaya sewa unit nomor $i$ adalah $H_i$.
+</p>
+
+<p>
+    Pak Dengklek memiliki data penyewaan seluruh unit rukonya dalam sebuah <em>array</em> $P$:
+</p>
+
+<ul>
+    <li>
+        Jika $P_i = 0$, artinya unit nomor $i$ masih kosong.
+    </li>
+    <li>
+        Jika $P_i > 0$, artinya unit nomor $i$ sudah disewakan.
+        Namun, penyewanya bersedia pindah unit apabila dibayarkan kompensasi sebesar $P_i$.
+    </li>
+</ul>
+
+<p>
+    Suatu hari, seorang juragan bebek ingin menyewa satu atau lebih unit dengan nomor-nomor yang <b>bersebelahan</b> untuk bisnis jual-beli bebek.
+    Tentu saja, unit-unit yang disewakan haruslah <b>kosong</b>.
+    Untuk itu, Pak Dengklek akan melakukan <b>nol atau lebih</b> perpindahan unit, yang masing-masing berupa operasi berikut:
+</p>
+
+<ol>
+    <li>
+        Pilih dua nomor unit $a$ dan $b$ yang memenuhi $P_a > 0$ dan $P_b = 0$.
+    </li>
+    <li>
+        Bayar <b>kompensasi</b> sebesar $P_a$ kepada penyewa unit nomor $a$.
+    </li>
+    <li>
+        Pindahkan penyewa di unit nomor $a$ ke unit nomor $b$.
+    </li>
+    <li>
+        Tukar nilai $P_a$ dan $P_b$.
+        Dengan kata lain, nilai $P_b$ berubah menjadi $P_a$, lalu nilai $P_a$ menjadi $0$.
+    </li>
+</ol>
+
+<p>
+    Pada akhirnya, Pak Dengklek harus memilih sepasang nomor $(l, r)$ yang memenuhi:
+</p>
+
+<ul>
+    <li>
+        $1 \le l \le r \le N$, dan
+    </li>
+    <li>
+        $P_l = P_{l+1} = \dots = P_r = 0$.
+    </li>
+</ul>
+
+<p>
+    Unit-unit nomor $l, l+1, \dots, r$ inilah yang Pak Dengklek sewakan kepada juragan bebek tersebut.
+    Dengan demikian, Pak Dengklek mendapatkan <b>uang sewa</b> $H_j$ untuk setiap $l \le j \le r$.
+</p>
+
+<p>
+    Total keuntungan yang diperoleh Pak Dengklek adalah <b>total pendapatan uang sewa</b> setiap unit yang disewakan kepada juragan bebek, <b>dikurangi</b> dengan <b>total pembayaran kompensasi</b> perpindahan unit.
+    Berapakah total keuntungan terbesar yang mungkin?
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+    <li>$1 \le N \le 200\,000$</li>
+    <li>$1 \le H_i \le 10^9$</li>
+    <li>$0 \le P_i \le 10^9$</li>
+    <li>Setidaknya satu elemen pada $P$ bernilai $0$.</li>
+</ul>
+
+<h3>Subsoal</h3>
+<ol>
+    <li>(X poin) Tepat $1$ elemen pada $P$ bernilai $0$.</li>
+    <li>(X poin) $N \le 2000$</li>
+    <li>(X poin) $H_i \ge P_i$, untuk setiap $1 \le i \le N$.</li>
+    <li>(X poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+    Masukan diberikan dalam format berikut:
+</p>
+
+<pre>
+N
+H<sub>1</sub> H<sub>2</sub> &hellip; H<sub>N</sub>
+P<sub>1</sub> P<sub>2</sub> &hellip; P<sub>N</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+    Keluarkan sebuah baris berisi sebuah bilangan bulat yang menyatakan total keuntungan terbesar yang mungkin Pak Dengklek peroleh.
+</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+10
+7 4 10 9 2 3 6 6 6 4
+0 3 0 0 5 1 0 0 0 7
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+<pre>
+30
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+
+<p>
+    Salah satu cara untuk mendapatkan keuntungan $30$ adalah sebagai berikut:
+</p>
+
+<ul>
+    <li>
+        Pindahkan penyewa dari unit nomor $5$ ke unit nomor $1$, dengan membayar kompensasi sebesar $5$.
+    </li>
+    <li>
+        Pindahkan penyewa dari unit nomor $6$ ke unit nomor $9$, dengan membayar kompensasi sebesar $1$.
+    </li>
+    <li>
+        Sewakan unit-unit nomor $3$ sampai dengan $8$ ke juragan bebek, dan mendapat uang sewa sebesar $10$, $9$, $2$, $3$, $6$, dan $6$.
+    </li>
+</ul>
+
+
+<p>
+    Maka, total keuntungan Pak Dengklek adalah $10+9+2+3+6+6 - (5+1) = 36-6 = 30$.
+</p>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+5
+10 20 50 20 10
+0 50 15 50 0
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+
+<pre>
+35
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+
+<p>
+    Pindahkan penyewa dari unit nomor $3$ ke unit nomor $1$ (atau nomor $5$), lalu sewakan unit nomor $3$.
+</p>
+
+<h3>Contoh Keluaran 3</h3>
+
+<pre>
+4
+10 20 30 40
+10 10 10 0
+</pre>
+
+<h3>Contoh Keluaran 3</h3>
+
+<pre>
+40
+</pre>
+
+<h3>Penjelasan Contoh 3</h3>
+
+<p>
+    Sewakan unit nomor $4$ (tanpa perlu perpindahan unit).
+</p>

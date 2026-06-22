@@ -1,0 +1,236 @@
+<!-- Brantas Microbe -->
+
+<h3>Description</h3>
+<p> Pak Dengklek is in the city of Malang! In Malang, there are many rivers, one of which is the Brantas river. There are many microbes in this river. Pak Dengklek loves playing with microbes and invites you to play together. Before the game starts, you and Pak Dengklek will prepare the following in advance.</p>
+
+<ol>
+  <li>First, you will select a positive integer $N$ ($6 \leq N \leq 50$).</li>
+  <li>Pak Dengklek will then prepare a board of size $N \times N$ where each cell is <strong>not sterile</strong></li>
+  <li>Afterwards, Pak Dengklek will place one microbe onto one of the cells of the board. However, you do not know where Pak Dengklek placed it.</li>
+</ol>
+
+<p>To win the game, you have to guess which cell Pak Dengklek has placed the microbe. You can interact with Pak Dengklek by performing the following operations:</p>
+
+<ul>
+  <li><code>QUERY</code>: You will write numbers on the cells of the board as follows:
+    <ul>
+      <li> For each <b>not sterile</b> cell, you will write a positive integer between $1$ and $36$ (inclusive).</li>
+      <li> For each <b>sterile</b> cell, you <strong>must</strong> write $0$.</li>
+      <li> Upon writing on all cells, Pak Dengklek will calculate two scores:
+        <ul>
+          <li>Microbe <em>stability</em> score ($S$), defined as the number written on which the microbe is located.</li>
+          <li>The <em>mobility</em> score of the cell where the microbe is located ($M$). The mobility score of a cell $p$ is defined as the number of distinct cells that can be visited from $p$ after performing a series of $4$-direction moves to adjacent cells: up, down, left, right; through cells with the same number written on cell $p$.</li> 
+        </ul>
+      </li>
+      <li> At the end of this operation, Pak Dengklek will do the following two steps:
+        <ul>
+          <li>Pak Dengklek will report to you the two scores $S$ and $M$.</li>
+          <li>Based on the scores $S$ and $M$, Pak Dengklek will change <strong>all</strong> cells with number <strong>other than</strong> $S$ or cells with mobility score other than <strong>$M$</strong> to <strong>sterile</strong>. Informally, cells on which the microbes are guaranteed not to exist will become sterile.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code>ANSWER</code>: You guess that the location of the microbe.</li>
+</ul>
+
+<p> Due to time constraints, you can only perform <strong>at most three</strong> <code>QUERY</code> operation. You will win if you can successfully guess the location of the microbe.</p>
+
+<h3>Constraints</h3>
+<ul>
+<li>$6 \leq N \leq 50$</li>
+</ul>
+
+<h3>Problem Type Information</h3>
+<p>
+  This is an "interactive" problem.
+  In this problem, you will interact with the judge's program through standard input (stdin) and standard output (stdout).
+  See the following interaction format carefully.
+</p>
+
+<h3>Interaction</h3>
+<p>Initially, You will give a value $N$. You will output to the standard output in the following format:</p>
+
+<pre>
+N
+</pre>
+
+<p>Afterwards, You will interact with Pak Dengklek with at most three <code>QUERY</code> operations in the following format:</p>
+
+<pre>
+QUERY
+A<sub>1,1</sub> A<sub>1,2</sub> ... A<sub>1,N</sub>
+A<sub>2,1</sub> A<sub>2,2</sub> ... A<sub>2,N</sub>
+.  .       .
+.   .      .
+A<sub>N,1</sub> A<sub>N,2</sub> ... A<sub>N,N</sub>
+</pre>
+<p>where $A_{i,j}$ represents the value written on the cell on row $i$ and column $j$.</p>
+
+<p>After every <code>QUERY</code> operation, Pak Dengklek will output $S$ and $M$ as described above in the following format:</p>
+<pre>
+S M
+</pre>
+
+<p>After all <code>QUERY</code> operations are performed, you have to answer the microbe's location, namely row $X$ and column $Y$, in the following format:</p> 
+<pre>
+ANSWER
+X Y
+</pre>
+
+<p>Immediately after, you program must immediately terminate.</p>
+
+<h3>Scoring</h3>
+
+<p>There are no subtasks for this problem, but your program will be tested against $50$ test cases instead. For each test case, you will get points if you correctly guess the location of the microbe. Your final points for this problem are the minimum points across all test cases.</p>
+
+<p>For each test case, your points will be graded according to $N$ and the largest number $K$ you wrote across all <code>QUERY</code> operations. The points are calculated as follows:</p>  
+
+<table>
+<tr>
+	<th>Condition</th>
+	<th>Score</th>
+</tr>
+<tr>
+    <td>$6 \lt K \leq 36$</td>
+    <td>$4$</td>
+</tr>
+<tr>
+    <td>$4 \lt K \leq 6$</td>
+    <td>$9$</td>
+</tr>
+<tr>
+    <td>$K = 4$</td>
+    <td>$16$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 6 \leq N \lt 9$</td>
+    <td>$26 + 3.0 \times (N - 6)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 9 \leq N \lt 18$</td>
+    <td>$41 + 2.0 \times (N - 9)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 18 \leq N \lt 30$</td>
+    <td>$63 + 1.5 \times (N - 18)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 30 \leq N \lt 36$</td>
+    <td>$84 + 2.5 \times (N - 30)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; N \gt 36$</td>
+    <td>$100$</td>
+</tr>
+</table>
+
+
+<p>Your program may receive "Wrong Answer" or "Time Limit Exceeded" (and obtains $0$ points) if it:</p>
+
+<ul>
+  <li>performs more than three <code>QUERY</code> operations;</li>
+  <li>writes a positive integer on a sterile cell, or $0$ on a non-sterile cell;</li>
+  <li>incorrectly guess the microbe's location during <code>ANSWER</code> operation;</li>
+  <li>produces an output in an incorrect format or beyond the constraints</li>
+  <li>does not perform <code>ANSWER</code> operation.</li>
+  <li>continues to perform other operations after <code>ANSWER</code> operation is performed.</li>
+</ul>
+
+<p>You can view the scoring detail for each test case in the submission page. Specifically:</p>
+<ul>
+  <li>If your program produced an output in the wrong format or beyond the described constraints, then you will receive information regarding the violated constraints.</li>
+  <li>If your program produced an output in the correct format and within the described constraints, but did <strong>not</strong> correctly answer the microbe's location, you will receive <code>INCORRECT ANSWER</code> with values of $N$, $K$, along with values of $S$ and $M$ for each <code>QUERY</code> operation.</li>
+  <li>If your program correctly guess the microbe's location and within the described constraints, you will receive your score with values of $N$ and $K$.</li>
+</ul>
+
+<p>Note that the grader may be <b>adaptive</b>. In other words, the microbe's original location may change after the interaction starts. However, the responses you received from the interactions so far are still consistent.</p>
+
+<h3>Sample Interaction</h3>
+<p>The following is a possible sample interaction. In this sample, Pak Dengklek will <strong>always</strong> place the microbe on row $4$ and column $2$ without considering the value of $N$.</p>
+
+<table>
+	<tr>
+		<th>Input</th>
+		<th>Output</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+6
+QUERY
+1 1 1 3 3 3
+2 2 3 2 3 4
+4 3 3 4 4 4
+2 3 4 2 3 3
+3 1 2 2 3 3
+2 1 3 2 4 3</pre></td>
+	</tr>
+	<tr>
+		<td><pre>3 4</pre></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+QUERY
+0 0 0 5 7 5
+0 0 5 0 7 0
+0 6 5 0 0 0
+0 5 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0</pre></td>
+	</tr>
+	<tr>
+		<td><pre>5 1</pre></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+QUERY
+0 0 0 2 0 3
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 1 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0</pre></td>
+	</tr>
+	<tr>
+		<td><pre>1 1</pre></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+ANSWER
+4 2</pre></td>
+	</tr>
+</table>
+
+<p>On the sample above, $N$ is $6$. In order, the following are operations performed by your program. </p>
+
+<ol>
+  <li>After the first <code>QUERY</code> operation, there are eight remaining cells with $S = 3$ written and mobility score $M = 4$.</li>
+  <li>After the second <code>QUERY</code> operation, there are three remaining cells with $S = 5$ written and mobility score $M = 1$.</li>
+  <li>After the third <code>QUERY</code> operation, there is only one possible cell where the microbe is located, which is the cell at row $4$ and column $2$.</li>
+  <li>Finally, the <code>ANSWER</code> operation is performed to answer the cell.</li>
+</ol>
+
+<p>Since your program correctly answer the microbe's location, your program will be awarded some points. Note that ther largest number you ever written across all <code>QUERY</code> operation is $K = 7$. Hence, you will receive $4$ points for this sample.
+
+<h3>Warning</h3>
+<p>
+  Always <em>flush</em> after each output.
+</p>
+<ul>
+  <li>
+    For <code>stdio.h</code>(<code>cstdio</code>) library:
+    <pre>fflush(stdout);</pre>
+  </li>
+  <li>
+    For <code>iostream</code> library:
+    <pre>std::cout &lt;&lt; std::flush;</pre>
+  </li>
+</ul>
+
+

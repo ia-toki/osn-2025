@@ -1,0 +1,129 @@
+<!-- Title: Taman Hujan -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Untuk liburan yang akan datang, Pak Dengklek memutuskan untuk berjalan-jalan di Jatim Park.
+</p>
+
+<p>
+  Jatim Park memiliki $N$ wahana, dinomori dari $1$ sampai $N$, dan wahana-wahana ini dihubungi oleh $M$ jalan setapak, dinomori dari $1$ sampai $M$.
+  Jalan setapak $i$ menghubungkan wahana $U_i$ dan $V_i$ secara dua arah, dan memerlukan waktu $W_i$ detik untuk berjalan melaluinya.
+  Terdapat dua jenis jalan setapak yang dideskripsikan oleh $Z_i$ sebagai berikut.
+</p>
+
+<ul>
+  <li>Apabila $Z_i = 1$, maka jalan setapak ini tidak beratap dan hanya bisa dilewati ketika hujan <strong>tidak turun</strong>.</li>
+  <li>Apabila $Z_i = 2$, maka jalan setapak ini beratap dan <strong>selalu bisa</strong> dilewati, terlepas dari hujan turun atau tidak.</li>
+</ul>
+
+<p>
+  Di tengah musim penghujan ini, Pak Dengklek lupa membawa payung, sehingga Pak Dengklek mengandalkan $Q$ prakiraan cuaca.
+  Saat ini (detik ke-$0$), cuaca sedang cerah.
+  Prakiraan cuaca $j$ mengatakan hujan akan <strong>mulai turun</strong> pada detik ke-$T_j$ dan akan terus </strong>turun tanpa berhenti</strong>.
+  Agar tidak kehujanan ketika hujan turun, Pak Dengklek hanya bisa melalui jalan beratap, atau berteduh di wahana mana pun.
+  Dengan kata lain, Pak Dengklek tidak dapat berada di tengah jalan tidak beratap ketika hujan turun.
+</p>
+
+<p>
+  Pak Dengklek sekarang berada di wahana $1$ dan ingin mengunjungi wahana $N$.
+  Apabila Pak Dengklek mengikuti prakiraan cuaca $j$, yaitu hujan mulai turun di detik ke-$T_j$, hitunglah waktu tempuh tersingkat untuk mencapai tujuan tanpa kehujanan, atau laporkan bahwa tujuan tidak mungkin tercapai.
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$2 \le N \le 100\,000$</li>
+  <li>$1 \le M \le 200\,000$</li>
+  <li>$1 \le U_i \lt V_i \le N$, untuk semua $1 \le i \le M$</li>
+  <li>$1 \le W_i \le 10\,000$, untuk semua $1 \le i \le M$</li>
+  <li>$Z_i = 1$ atau $Z_i = 2$, untuk semua $1 \le i \le M$</li>
+  <li>$1 \le Q \le 100\,000$</li>
+  <li>$1 \le T_j \le 10^{9}$, untuk semua $1 \le j \le Q$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>(7 poin) $Z_i = 2$; $W_i = 1$</li>
+  <li>(8 poin) $Z_i = 2$</li>
+  <li>(6 poin) $Z_i = 1$</li>
+  <li>(19 poin) $N, M, Q \le 2000$</li>
+  <li>(22 poin) Jika $Z_i = 2$, maka $V_i = N$.</li>
+  <li>(19 poin) $N, M \le 2000$</li>
+  <li>(19 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+
+<pre>
+N M
+U<sub>1</sub> V<sub>1</sub> W<sub>1</sub> Z<sub>1</sub>
+U<sub>2</sub> V<sub>2</sub> W<sub>2</sub> Z<sub>2</sub>
+⋮
+U<sub>M</sub> V<sub>M</sub> W<sub>M</sub> Z<sub>M</sub>
+Q
+T<sub>1</sub>
+T<sub>2</sub>
+⋮
+T<sub>Q</sub>
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Keluarkan $Q$ baris.
+  Baris ke-$j$ berisi sebuah bilangan bulat yang menyatakan waktu tempuh tersingkat dari wahana $1$ ke wahana $N$ apabila hujan mulai turun di detik ke-$T_j$.
+  Jika wahana $N$ tidak dapat tercapai, keluarkan <code>-1</code>.
+</p>
+
+<h3>Contoh Masukan</h3>
+
+<pre>
+4 4
+1 3 20 1
+2 3 30 2
+2 3 20 1
+2 4 10 2
+3
+100
+20
+1
+</pre>
+
+<h3>Contoh Keluaran</h3>
+
+<pre>
+50
+60
+-1
+</pre>
+
+<h3>Penjelasan</h3>
+
+<p>
+  Jatim Park pada masukan dapat diilustrasikan sebagai berikut.
+</p>
+
+<img src="render/image.png" style="width: 500px" />
+
+<p>
+  Pada prakiraan cuaca pertama, $T_1 = 100$.
+  Pak Dengklek dapat melewati jalan $1$, $3$, lalu $4$, dan mencapai tujuan dalam waktu $50$ detik sebelum hujan turun.
+</p>
+
+<p>
+  Pada prakiraan cuaca kedua, $T_2 = 20$.
+  Pak Dengklek dapat berjalan dari wahana $1$ ke wahana $2$ dengan satu-satunya jalan dalam $20$ detik, tepat sebelum hujan turun.
+  Untuk seterusnya, Pak Dengklek harus berjalan melalui jalan beratap, dan mencapai tujuan dengan total waktu $60$ detik.
+</p>
+
+<p>
+  Pada prakiraan cuaca ketiga, $T_3 = 1$.
+  Satu-satunya jalan yang bisa Pak Dengklek lalui pada awalnya memerlukan waktu $20$ detik, dan hujan sudah akan turun sehingga tidak bisa digunakan.
+  Karena Pak Dengklek tidak bisa mencapai tujuan, maka Anda harus mengeluarkan <code>-1</code>.
+</p>

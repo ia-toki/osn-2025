@@ -1,0 +1,146 @@
+<!-- Title: Malang Defense -->
+
+<h3>Description</h3>
+
+<p>
+    The city of Malang is under siege by the army of City X for the next $Q$ days!
+    Fortunately, Pak Dengklek is a spy from Malang.
+    He scouted information that City X has $N$ soldiers, and the $i$-th soldier has strength $A_i$.
+    Pak Dengklek wishes to rescue the city of Malang by <b>blocking</b> all the soldiers.</p>
+</p>
+
+<p>
+    To block soldiers from City X, Pak Dengklek has built a series of $10^{100}$ magical portals at the border of Malang.
+    All soldiers will always march together, passing through the portals one at a time.
+    Every time all the soldiers pass through a portal, the portal will magically block them as follows: let there be $k$ soldiers in front of the portal, then all soldiers with strength <b>exactly</b> $k$ will not be able to pass the portal, and they have to retreat to their base in City X.
+    All the remaining soldiers will march through the next portal, and so on.
+</p>
+
+
+<p>
+    Pak Dengklek is said to have rescued Malang on a day if no soldiers can pass through all the portals.
+    However, notice that there may exist a configuration of $N$ soldiers, such that it is possible for one of them to pass through all the portals.
+    Therefore, Pak Dengklek may use a magical flashlight that can change <b>any</b> soldier's strength to <b>any</b> value.
+    The flashlight is energy-intensive, so Pak Dengklek wants to use the flashlight to change the strength of as few soldiers as possible.
+    Pak Dengklek has to use the flashlight <b>before</b> the soldiers start to pass through the first portal.
+    The changes by the flashlight are only temporary and will only last until the end of the day.
+</p>
+
+<p>
+    Apparently, City X is aware of Pak Dengklek's espionage, so City X will do the following strategy: at the beginning of the $j$-th day, the $X_j$-th soldier will change its strength to $Y_j$.
+    The change is permanent and persists for the following days.
+</p>
+
+<p>
+    Pak Dengklek wants to know, for each day $j$, what is the minimum number of soldiers that must have their strengths changed by the flashlight so that Malang can be rescued on that day.
+    Help Pak Dengklek!
+</p>
+
+
+
+<h3>Constraints</h3>
+<ul>
+<li>$1 \leq N, Q \leq 200\,000$</li>
+<li>$1 \leq A_i \leq 1\,000\,000$ for $1 \leq i \leq N$</li>
+<li>$1 \leq X_j \leq N$ for $1 \leq j \leq Q$</li>
+<li>$1 \leq Y_j \leq 1\,000\,000$ for $1 \leq j \leq Q$</li>
+</ul>
+
+<h3>Subtasks</h3>
+<ol>
+<li>(8 points) $N \leq 5; Q \leq 10$</li>
+<li>(6 points) $A_i$ and $Y_j$ are either $1$ or $N$</li>
+<li>(14 points) $N \leq 100; Q \leq 10$</li>
+<li>(13 points) $N \leq 1000; Q \leq 10$</li>
+<li>(17 points) $N \leq 1000; Q \leq 5000$</li>
+<li>(19 points) For each test case, there are at most $50$ unique soldiers' strengths at all times.</li>
+<li>(23 points) No additional constraints.</li>
+</ol>
+
+
+<h3>Input</h3>
+<p>The input is given in the following format:</p>
+
+<pre>
+N
+A<sub>1</sub> A<sub>2</sub> ... A<sub>N</sub>
+Q
+X<sub>1</sub> Y<sub>1</sub>
+X<sub>2</sub> Y<sub>2</sub>
+X<sub>3</sub> Y<sub>3</sub>
+...
+...
+X<sub>Q</sub> Y<sub>Q</sub>
+</pre>
+
+<h3>Output</h3>
+
+<p>Output $Q$ lines, where the $j$-th line represents the minimum number of soldiers that must have their strengths changed by Pak Dengklek's magical flashlight on the $j$-th day.</p>
+
+<h3>Sample Input</h3>
+
+<pre>
+4
+1 1 1 2
+5
+3 2
+1 4
+4 3
+3 4
+4 4
+</pre>
+
+<h3>Sample Output</h3>
+<pre>
+2
+1
+0
+1
+0
+</pre>
+
+<h3>Explanation</h3>
+
+<p>On the first day, the strengths of the soldiers are $[1, 1, 2, 2]$.
+One optimal way to rescue the city of Malang is to alter the strength of the first soldier to $4$, and the third soldier to $4$ too, thus their strengths become $[4, 1, 4, 2]$.
+All soldiers will then start to pass the portals, and the following happens.</p>
+
+<ol>
+<li>$A = [4, 1, 4, 2]$: $4$ remaining soldiers. The soldiers with strength $4$ can't pass the portal.</li>
+<li>$A = [1, 2]: $2$ remaining soldiers. The soldier with strength $2$ can't pass the portal.</li>
+<li>$A = [1]: $1$ remaining soldier. The soldier with strength $1$ can't pass the portal.</li>
+<li>No soldiers left and Pak Dengklek rescued the city of Malang.</li>
+</ol>
+
+
+<p>On the second day, the strengths of the soldiers are $[4, 1, 2, 2]$.
+One optimal way to rescue the city of Malang is to alter the strength of the third soldier to $4$, thus their strengths become $[4, 1, 4, 2]$.
+All soldiers will then start to pass the portals, and the same things happen to the soldiers as the first day when they passed the portals.</p>
+
+<p>On the third day, the strengths of soldiers are $[4, 1, 2, 3]$
+Pak Dengklek does not need to alter any soldier's strength, because when the soldiers pass the portals, the following will happen.</p>
+
+
+<ol>
+<li>$A = [4, 1, 2, 3]$: $4$ remaining soldiers. The soldier with strength $4$ can't pass the portal.</li>
+<li>$A = [1, 2, 3]$: $3$ remaining soldiers. The soldier with strength $3$ can't pass the portal.</li>
+<li>$A = [1, 2]$: $2$ remaining soldiers. The soldier with strength $2$ can't pass the portal.</li>
+<li>$A = [1]$: $1$ remaining soldier. The soldier with strength $1$ can't pass the portal.</li>
+<li>No soldiers left and Pak Dengklek rescued the city of Malang.</li>
+</ol>
+
+
+<p>On the fourth day, the strengths of the soldiers are $[4, 1, 4, 3]$.
+One optimal way to rescue the city of Malang is to alter the strength of the fourth soldier to $4$, thus their strengths become $[4, 1, 4, 4]$.
+All soldiers will then start to pass the portals, and the following happens.</p>
+
+
+<ol>
+<li>$A = [4, 1, 4, 4]$: $4$ remaining soldiers. The soldiers with strength $4$ can't pass the portal.</li>
+<li>$A = [1]$: $1$ remaining soldier. The soldier with strength $1$ can't pass the portal.</li>
+<li>No soldiers left and Pak Dengklek rescued the city of Malang.</li>
+</ol>
+
+
+<p>On the fifth day, the strengths of the soldiers are $[4, 1, 4, 4]$.
+Pak Dengklek does not need to alter any soldier's strength, because when the soldiers pass the portals, the same will happen as the fourth day.</p>

@@ -1,0 +1,237 @@
+<!-- Mikroba Brantas -->
+
+<h3>Deskripsi</h3>
+<p>Pak Dengklek sedang berada di kota Malang! Di Malang, terdapat banyak sungai, salah satunya Sungai Brantas. Di Sungai Brantas terdapat banyak mikroba. Pak Dengklek sangat senang bermain dengan mikroba dan mengajak Anda untuk bermain bersama. Sebelum permainan dimulai, Anda dan Pak Dengklek terlebih dahulu melakukan persiapan sebagai berikut.</p>
+
+<ol>
+<li>Pertama, Anda akan menentukan sebuah bilangan bulat positif $N$ ($6 \leq N \leq 50$).</li> 
+<li>Pak Dengklek kemudian akan menyiapkan papan berukuran $N \times N$ yang setiap petaknya bersifat <strong>tidak steril</strong>.</li>
+<li>Selanjutnya, Pak Dengklek akan meletakkan satu mikroba pada salah satu petak di papan tersebut. Tetapi, Anda tidak tahu di mana Pak Dengklek meletakkannya.</li>
+</ol>
+
+<p>Untuk memenangkan permainan ini, Anda harus menebak petak tempat Pak Dengklek meletakkan mikrobanya. Anda dapat berinteraksi dengan Pak Dengklek dengan melakukan operasi-operasi sebagai berikut.</p>
+
+<ul>
+<li><code>QUERY</code>: Anda akan menulis angka di petak-petak papan sebagai berikut.
+    <ul>
+        <li>Untuk setiap petak yang <strong>tidak steril</strong>, Anda akan menulis sebuah bilangan bulat di antara $1$ hingga $36$ (inklusif).</li>
+    	<li>Untuk setiap petak yang <strong>steril</strong>, Anda <strong>wajib</strong> menulis angka $0$.</li>
+    	<li>Setelah Anda selesai menulis angka di semua petak, Pak Dengklek akan menghitung dua buah nilai:
+		    <ul>
+		    <li>Nilai <em>stabilitas</em> mikroba ($S$) yakni angka yang tertulis pada petak tempat mikroba berada.</li>
+		    <li>Nilai <em>mobilitas</em> petak tempat mikroba berada ($M$). Nilai mobilitas suatu petak $p$ adalah banyaknya petak berbeda yang dapat dikunjungi dari $p$ dengan melakukan serangkaian pergerakan empat arah: atas, bawah, kiri, dan kanan; melalui petak-petak yang angkanya sama dengan yang tertulis pada petak $p$.</li>
+		    </ul>
+	    </li>
+	    <li>Di akhir operasi ini, Pak Dengklek akan melakukan dua hal berikut.
+		    <ol>
+		    	<li>Pak Dengklek akan melaporkan nilai $S$ dan $M$ kepada Anda.</li>
+		    	<li>Berdasarkan nilai $S$ dan $M$ tersebut, Pak Dengklek akan mengubah sifat <b>semua</b> petak dengan angka <strong>selain</strong> $S$ ataupun petak dengan nilai mobilitas <strong>selain</strong> $M$ menjadi <strong>steril</strong>. Kasarnya, petak-petak yang tidak mungkin merupakan petak tempat mikroba berada akan berubah menjadi steril.</li>
+		    </ol>
+	    </li>
+    </ul>
+
+</li>
+<li><code>ANSWER</code>: Anda menebak petak tempat mikroba tersebut berada.</li>
+</ul>
+
+<p>Karena keterbatasan waktu, Anda hanya dapat melakukan <strong>paling banyak tiga</strong> operasi <code>QUERY</code>. Anda akan menang apabila Anda berhasil menebak petak tempat mikroba ditempatkan.</p>
+
+<h3>Batasan</h3>
+<ul>
+<li>$6 \leq N \leq 50$</li>
+</ul>
+
+<h3>Informasi Tipe Soal</h3>
+<p>Soal ini bertipe "interaktif". Pada soal ini, Anda akan berinteraksi dengan program penguji melalui masukan standar (<em>stdin</em>) dan keluaran standar (<em>stdout</em>). Perhatikan interaksi di bawah ini dengan saksama.</p>
+
+<h3>Interaksi</h3>
+<p>Awalnya, Anda akan memberikan nilai $N$ dengan memberikan keluaran dalam format berikut:</p>
+
+<pre>
+N
+</pre>
+
+<p>Setelah itu, Anda dapat melakukan paling banyak tiga operasi <code>QUERY</code> dalam format berikut:</p>
+<pre>
+QUERY
+A<sub>1,1</sub> A<sub>1,2</sub> ... A<sub>1,N</sub>
+A<sub>2,1</sub> A<sub>2,2</sub> ... A<sub>2,N</sub>
+.  .       .
+.   .      .
+A<sub>N,1</sub> A<sub>N,2</sub> ... A<sub>N,N</sub>
+</pre>
+<p>dengan $A_{i,j}$ merupakan angka yang ditulis pada petak baris $i$ dan kolom $j$.</p>
+
+<p>Setelah setiap operasi <code>QUERY</code> dilakukan, Pak Dengklek akan mengeluarkan nilai $S$ dan $M$ sesuai yang dideskripsikan dalam format berikut:</p>
+<pre>
+S M
+</pre>
+
+<p>Setelah semua operasi <code>QUERY</code> dilakukan, Anda harus menebak petak tempat mikroba berada, yakni baris $X$ dan kolom $Y$, dalam format berikut:</p>
+<pre>
+ANSWER
+X Y
+</pre>
+
+<p>Tepat setelah itu, program Anda harus langsung berhenti.</p>
+
+<h3>Penilaian</h3>
+
+<p>Tidak terdapat subsoal pada soal ini, melainkan program Anda akan diuji terhadap $50$ kasus uji. Untuk suatu kasus uji, Anda akan mendapatkan poin apabila Anda berhasil menebak petak tempat mikroba berada dengan benar. Poin akhir dari soal ini adalah poin minimum dari seluruh kasus uji, dibulatkan ke bilangan bulat terdekat.</p> 
+
+<p>Untuk suatu kasus uji, poin yang Anda dapatkan akan berdasarkan $N$ dan angka paling besar $K$ yang pernah Anda tulis dari seluruh operasi <code>QUERY</code>. Perhitungan poinnya adalah sebagai berikut:</p>
+
+<table>
+<tr>
+	<th>Kondisi</th>
+	<th>Poin</th>
+</tr>
+<tr>
+    <td>$6 \lt K \leq 36$</td>
+    <td>$4$</td>
+</tr>
+<tr>
+    <td>$4 \lt K \leq 6$</td>
+    <td>$9$</td>
+</tr>
+<tr>
+    <td>$K = 4$</td>
+    <td>$16$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 6 \leq N \lt 9$</td>
+    <td>$26 + 3.0 \times (N - 6)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 9 \leq N \lt 18$</td>
+    <td>$41 + 2.0 \times (N - 9)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 18 \leq N \lt 30$</td>
+    <td>$63 + 1.5 \times (N - 18)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; 30 \leq N \leq 36$</td>
+    <td>$84 + 2.5 \times (N - 30)$</td>
+</tr>
+<tr>
+    <td>$K \leq 3; N \gt 36$</td>
+    <td>$100$</td>
+</tr>
+</table>
+
+
+<p>Program Anda mungkin mendapatkan "Wrong Answer" atau "Time Limit Exceeded" (dan mendapatkan $0$ poin) jika:</p>
+
+<ul>
+<li>melakukan operasi <code>QUERY</code> lebih dari tiga kali;</li>
+<li>menuliskan bilangan bulat positif pada petak yang steril, atau menulis angka $0$ pada petak yang tidak steril;</li>
+<li>menjawab tempat petak mikroba secara tidak tepat pada operasi <code>ANSWER</code>;</li>
+<li>menghasilkan keluaran dengan format yang salah atau di luar batasan dan ketentuan;</li>
+<li>tidak melakukan operasi <code>ANSWER</code>;</li>
+<li>masih mengeluarkan operasi lain setelah operasi <code>ANSWER</code> dilakukan.</li>
+
+</ul>
+
+<p>Anda bisa melihat informasi penilaian setiap kasus uji secara detail di halaman pengumpulan. Secara spesifik:</p>
+
+<ul>
+	<li>Apabila program Anda menghasilkan keluaran dengan format yang salah atau di luar batasan dan ketentuan, maka Anda akan mendapatkan informasi berupa batasan dan ketentuan yang dilanggar.</li>
+	<li>Apabila program Anda menghasilkan keluaran sesuai dengan format dan ketentuan yang berlaku, namun <strong>tidak</strong> berhasil menjawab tempat petak mikroba secara tepat, maka Anda akan mendapatkan informasi <code>INCORRECT ANSWER</code> dengan nilai $N$, nilai $K$, dan nilai $S$ maupun $M$ hasil setiap operasi <code>QUERY</code>.</li>
+	<li>Apabila program Anda berhasil menjawab tempat petak mikroba secara tepat dan sesuai dengan format dan batasan, maka Anda akan mendapatkan informasi berupa poin, nilai $N$, dan nilai $K$.</li>
+		</ul>
+		  
+    </li>
+</ul>
+
+<p>Perhatikan bahwa <em>grader</em> bisa saja bersifat <strong>adaptif</strong>. Dengan kata lain, petak tempat mikroba ditempatkan di awal dapat berubah setelah interaksi dimulai, namun jawaban yang Anda terima dari hasil interaksi masih akan konsisten dengan tempat mikroba tersebut berada sekarang.</p>
+
+<h3>Contoh Interaksi</h3>
+<p>Berikut adalah sebuah contoh interaksi yang mungkin. Pada contoh interaksi, Pak Dengklek akan <strong>selalu</strong> menempatkan mikroba di baris $4$ dan kolom $2$ tanpa mempertimbangkan nilai $N$ sama sekali.</p>
+
+
+<table>
+	<tr>
+		<th>Masukan</th>
+		<th>Keluaran</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+6
+QUERY
+1 1 1 3 3 3
+2 2 3 2 3 4
+4 3 3 4 4 4
+2 3 4 2 3 3
+3 1 2 2 3 3
+2 1 3 2 4 3</pre></td>
+	</tr>
+	<tr>
+		<td><pre>3 4</pre></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+QUERY
+0 0 0 5 7 5
+0 0 5 0 7 0
+0 6 5 0 0 0
+0 5 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0</pre></td>
+	</tr>
+	<tr>
+		<td><pre>5 1</pre></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+QUERY
+0 0 0 2 0 3
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 1 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0</pre></td>
+	</tr>
+	<tr>
+		<td><pre>1 1</pre></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><pre>
+ANSWER
+4 2</pre></td>
+	</tr>
+</table>
+
+<p>Pada contoh di atas, nilai $N$ adalah $6$. Secara berturut-turut, berikut adalah operasi-operasi yang dilakukan oleh program Anda.</p> 
+
+<ol>
+<li>Setelah operasi <code>QUERY</code> pertama, tersisa delapan petak yang ditulis angka $S = 3$ dengan nilai mobilitas $M = 4$.</li>
+<li>Setelah operasi <code>QUERY</code> kedua, tersisa tiga petak yang ditulis angka $S = 5$ dengan nilai mobilitas $M = 1$.</li>
+<li>Setelah operasi <code>QUERY</code> ketiga, hanya tersisa satu petak yang mungkin sebagai petak tempat mikroba berada, yaitu petak di baris $4$ dan kolom $2$.</li>
+<li>Pada akhirnya, operasi <code>ANSWER</code> dilakukan untuk menjawab petak tersebut.</li>
+</ol>
+
+<p>Karena program berhasil menebak posisi mikroba dengan tepat, maka program Anda akan mendapatkan poin. Perhatikan bahwa angka paling besar yang pernah Anda tulis dari seluruh operasi <code>QUERY</code> adalah $K = 7$. Oleh karena itu, Anda akan mendapatkan $4$ poin untuk contoh ini. 
+
+<h3>Peringatan</h3>
+
+<p>
+  Selalu lakukan <em>flush</em> setiap kali setelah program Anda mengeluarkan keluaran.
+</p>
+<ul>
+  <li>
+    Untuk <em>library</em> <code>stdio.h</code> (<code>cstdio</code>):
+    <pre>fflush(stdout);</pre>
+  </li>
+  <li>
+    Untuk <em>library</em> <code>iostream</code>:
+    <pre>std::cout &lt;&lt; std::flush;</pre>
+  </li>
+</ul>

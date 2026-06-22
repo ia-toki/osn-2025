@@ -1,0 +1,137 @@
+<!-- Title: Pertahanan Malang -->
+
+<h3>Deskripsi</h3>
+
+<p>
+    Kota Malang sedang diserang oleh pasukan dari Kota X selama $Q$ hari ke depan!
+    Untungnya, Pak Dengklek merupakan mata-mata dari Kota Malang.
+    Ia mendapatkan informasi bahwa Kota X memiliki $N$ prajurit, dan prajurit ke-$i$ memiliki kekuatan $A_i$.
+    Pak Dengklek ingin menyelamatkan Kota Malang dengan cara <b>menghalau</b> seluruh prajurit setiap harinya.
+</p> 
+
+<p>
+    Untuk menghalau prajurit-prajurit Kota X, Pak Dengklek telah membangun $10^{100}$ gapura ajaib secara berjejeran di perbatasan Kota Malang.
+    Seluruh prajurit akan selalu bergerak bersamaan, melewati gapura-gapura tersebut, satu gapura dalam suatu waktu.
+    Setiap kali seluruh prajurit akan melewati sebuah gapura, gapura tersebut secara ajaib akan menghalau mereka sebagai berikut: misalkan terdapat $k$ prajurit di hadapan gapura tersebut, maka seluruh prajurit dengan kekuatan <b>tepat</b> $k$ tidak dapat melewati gapura tersebut, dan akan kembali ke markas kota X.
+    Seluruh prajurit sisanya akan melaju menuju gapura berikutnya, dan seterusnya.
+</p>
+
+<p>
+    Pak Dengklek dikatakan berhasil menyelamatkan Kota Malang pada suatu hari tertentu, apabila tidak ada prajurit yang berhasil melewati seluruh gapura.
+    Namun, perhatikan bahwa untuk suatu konfigurasi kekuatan dari $N$ prajurit, mungkin saja ada setidaknya satu prajurit yang berhasil melewati seluruh gapura.
+    Oleh karena itu, Pak Dengklek memiliki sebuah senter ajaib yang dapat mengubah kekuatan prajurit <b>mana pun</b> menjadi <b>berapa pun</b>.
+    Senter tersebut membutuhkan energi yang sangat tinggi, sehingga Pak Dengklek ingin banyaknya prajurit yang diubah kekuatannya oleh senter tersebut <b>sesedikit mungkin</b>.
+    Pak Dengklek hanya dapat menggunakan senter ini <b>sebelum</b> prajurit mulai melewati gapura pertama.
+    Perubahan kekuatan oleh senter ini bersifat sementara dan hanya berlaku sampai akhir hari tersebut.
+</p>
+
+<p>
+    Ternyata, Kota X mengetahui bahwa Pak Dengklek merupakan mata-mata, sehingga Kota X akan melakukan strategi berikut: pada awal hari ke-$j$, prajurit ke-$X_j$ berubah kekuatannya menjadi $Y_j$.
+    Perubahan ini bersifat permanen dan berlaku untuk hari-hari berikutnya.
+</p>
+
+<p>
+    Pak Dengklek ingin mengetahui, untuk setiap hari ke-$j$, berapa banyak prajurit minimum yang perlu diubah kekuatannya oleh senter agar ia dapat menyelamatkan Kota Malang pada hari tersebut. Bantulah Pak Dengklek!
+</p>
+
+<h3>Batasan</h3>
+<ul>
+<li>$1 \leq N, Q \leq 200\,000$</li>
+<li>$1 \leq A_i \leq 1\,000\,000$ untuk $1 \leq i \leq N$</li>
+<li>$1 \leq X_j \leq N$ untuk $1 \leq j \leq Q$</li>
+<li>$1 \leq Y_j \leq 1\,000\,000$ untuk $1 \leq j \leq Q$</li>
+</ul>
+
+<h3>Subsoal</h3>
+<ol>
+<li>(8 poin) $N \leq 5; Q \leq 10$</li>
+<li>(6 poin) $A_i$ maupun $Y_j$ selalu bernilai $1$ atau $N$</li>
+<li>(14 poin) $N \leq 100; Q \leq 10$</li>
+<li>(13 poin) $N \leq 1000; Q \leq 10$</li>
+<li>(17 poin) $N \leq 1000; Q \leq 5000$</li>
+<li>(19 poin) Untuk setiap kasus uji, terdapat paling banyak $50$ angka berbeda dari gabungan seluruh nilai $A_i$ dan $Y_j$.</li>
+<li>(23 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+
+<h3>Masukan</h3>
+<p>Masukan diberikan dalam format berikut:</p>
+
+<pre>
+N
+A<sub>1</sub> A<sub>2</sub> ... A<sub>N</sub>
+Q
+X<sub>1</sub> Y<sub>1</sub>
+X<sub>2</sub> Y<sub>2</sub>
+X<sub>3</sub> Y<sub>3</sub>
+...
+...
+X<sub>Q</sub> Y<sub>Q</sub>
+</pre>
+
+<h3>Keluaran</h3>
+<p>Keluarkan $Q$ baris, dengan baris ke-$j$ menyatakan banyaknya prajurit minimum yang harus diubah kekuatannya dengan senter ajaib Pak Dengklek pada hari ke-$j$.</p>
+
+<h3>Contoh Masukan</h3>
+
+<pre>
+4
+1 1 1 2
+5
+3 2
+1 4
+4 3
+3 4
+4 4
+</pre>
+
+<h3>Contoh Keluaran</h3>
+<pre>
+2
+1
+0
+1
+0
+</pre>
+
+<h3>Penjelasan</h3>
+
+<p>Pada hari ke-$1$, kekuatan prajurit adalah $[1, 1, 2, 2]$.
+Salah satu cara optimal untuk menyelamatkan Kota Malang adalah mengubah kekuatan prajurit ke-$1$ menjadi $4$ dan prajurit ke-$3$ menjadi $4$ juga, sehingga kekuatan prajurit menjadi $[4, 1, 4, 2]$.
+Seluruh prajurit kemudian mulai melewati gapura-gapura, sehingga terjadi hal-hal sebagai berikut.</p>
+
+<ol>
+<li>$A = [4, 1, 4, 2]$: tersisa $4$ prajurit, sehingga dua prajurit dengan kekuatan $4$ tidak dapat melewati gapura.</li>
+<li>$A = [1, 2]$: tersisa $2$ prajurit, sehingga satu prajurit dengan kekuatan $2$ tidak dapat melewati gapura.</li>
+<li>$A = [1]$: tersisa $1$ prajurit, sehingga satu prajurit dengan kekuatan $1$ tidak dapat melewati gapura.</li>
+<li>Tidak ada prajurit yang tersisa dan Pak Dengklek berhasil menyelamatkan Kota Malang.</li>
+</ol>
+
+<p>Pada hari ke-$2$, kekuatan prajurit adalah $[4, 1, 2, 2]$.
+Salah satu cara optimal untuk menyelamatkan Kota Malang adalah mengubah kekuatan prajurit ke-$3$ menjadi $4$, sehingga kekuatan prajurit menjadi $[4, 1, 4, 2]$.
+Setelah itu, kejadian yang sama terjadi pada prajurit seperti hari ke-$1$ ketika melewati gapura.</p>
+
+<p>Pada hari ke-$3$, kekuatan prajurit adalah $[4, 1, 2, 3]$.
+Pak Dengklek tidak perlu mengubah kekuatan prajurit mana pun, karena ketika prajurit melewati gapura, terjadi hal-hal sebagai berikut.</p>
+
+<ol>
+<li>$A = [4, 1, 2, 3]$: tersisa $4$ prajurit, sehingga satu prajurit dengan kekuatan $4$ tidak dapat melewati gapura.</li>
+<li>$A = [1, 2, 3]$: tersisa $3$ prajurit, sehingga satu prajurit dengan kekuatan $3$ tidak dapat melewati gapura.</li>
+<li>$A = [1, 2]$: tersisa $2$ prajurit, sehingga satu prajurit dengan kekuatan $2$ tidak dapat melewati gapura.</li>
+<li>$A = [1]$: tersisa $1$ prajurit, sehingga satu prajurit dengan kekuatan $1$ tidak dapat melewati gapura.</li>
+<li>Tidak ada prajurit yang tersisa dan Pak Dengklek berhasil menyelamatkan Kota Malang.</li>
+</ol>
+
+<p>Pada hari ke-$4$, kekuatan prajurit adalah $[4, 1, 4, 3]$.
+Salah satu cara optimal untuk menyelamatkan Kota Malang adalah mengubah kekuatan prajurit ke-$4$ menjadi $4$, sehingga kekuatan prajurit menjadi $[4, 1, 4, 4]$.
+Setelah itu, seluruh prajurit mulai melewati gapura dan terjadi hal-hal sebagai berikut.</p>
+
+<ol>
+<li>$A = [4, 1, 4, 4]$: tersisa $4$ prajurit, sehingga tiga prajurit dengan kekuatan $4$ tidak dapat melewati gapura.</li>
+<li>$A = [1]$: tersisa $1$ prajurit, sehingga satu prajurit dengan kekuatan $1$ tidak dapat melewati gapura.</li>
+<li>Tidak ada prajurit yang tersisa dan Pak Dengklek berhasil menyelamatkan Kota Malang.</li>
+</ol>
+
+<p>Pada hari ke-$5$, kekuatan prajurit menjadi $[4, 1, 4, 4]$.
+Pak Dengklek tidak perlu mengubah kekuatan prajurit mana pun, karena seluruh prajurit akan mulai melewati gapura dan kejadian yang sama akan terjadi seperti hari ke-$4$.</p>
+</ol>

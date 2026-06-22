@@ -1,0 +1,133 @@
+<!-- Title: Festival KPK -->
+
+<h3>Deskripsi</h3>
+
+<p>
+Kota Malang merupakan salah satu kota yang sering menyelenggarakan festival. Dengan adanya OSN di Malang ini, Pak Dengklek akan ikut memeriahkan dengan membuat festival baru, yaitu Festival KPK!</p>
+
+<p>Terdapat $N$ lapak yang berpartisipasi dalam festival ini. Dalam festival ini, Pak Dengklek meminta setiap lapak ke-$i$ untuk menyebutkan sebuah bilangan bulat positif $A_i$. Pak Dengklek kemudian meminta pengunjung festival untuk memberikan sebuah barisan $B$ yang terdiri dari $N + 1$ bilangan bulat positif, sedemikian sehingga:</p>
+
+<ul>
+  <li>Untuk setiap indeks $i$ $(1 \leq i \leq N)$, $A_i$ merupakan <strong>Kelipatan Persekutuan Terkecil ($\text{KPK}$)</strong> dari $B_i$ dan $B_{i + 1}$.</li>
+</ul>
+
+<p>Misalnya, apabila barisan $A$ yang didapat adalah $[3, 12, 12, 4]$, maka salah satu kemungkinan $B$ yang memenuhi aturan adalah $[1, 3, 12, 4, 1]$ karena:</p>
+
+<ul>
+<li>$A_1 = 3, B_1 = 1, B_2 = 3$. $\text{KPK}(1, 3) = 3$.</li>
+<li>$A_2 = 12, B_2 = 3, B_3 = 12$. $\text{KPK}(3, 12) = 12$.</li>
+<li>$A_3 = 12, B_3 = 12, B_4 = 4$. $\text{KPK}(12, 4) = 12$.</li>
+<li>$A_4 = 4, B_4 = 4, B_5 = 1$. $\text{KPK}(4, 1) = 4$.</li>
+</ul>
+
+<p>Pengunjung akan mendapatkan hadiah untuk setiap barisan $B$ berbeda yang diberikan. Dua barisan $B$ dan $B'$ dikatakan berbeda apabila terdapat suatu indeks $i$ ($1 \leq i \leq N+1$) sehingga $B_i \neq B'_i$.</p>
+
+<p>Supaya festival dapat berjalan sukses, Pak Dengklek ingin mengetahui berapa banyaknya hadiah yang harus disiapkan apabila semua kemungkinan barisan $B$ berhasil ditebak. Karena jumlahnya bisa sangat besar, keluarkan hasilnya modulo $1\,000\,000\,007$.</p>
+
+<hr/>
+<h3>Catatan</h3>
+<p><strong>KPK</strong> dari dua buah bilangan bulat positif didefinisikan sebagai bilangan bulat positif terkecil yang habis dibagi dua bilangan tersebut. Sebagai contoh, KPK dari $4$ dan $6$ adalah $12$, karena $12$ habis dibagi $4$ maupun $6$, dan tidak ada bilangan positif lebih kecil yang habis dibagi dua bilangan tersebut.</p>
+<hr/>
+
+
+<h3>Batasan</h3>
+<ul>
+<li>$1 \leq N \leq 100\,000$</li>
+<li>$1 \leq A_i \leq 1\,000\,000$ untuk $1 \leq i \leq N$</li>
+</ul>
+
+<h3>Subsoal</h3>
+<ol>
+<li>(8 poin) $N \leq 5; A_i \leq 12$</li>
+<li>(8 poin) $N = 1$</li>
+<li>(13 poin) $N \leq 100; A_i \leq 100$</li>
+<li>(15 poin) $N \leq 100; A_i \leq 5000$</li>
+<li>(18 poin) $A_i = 2^k$ untuk sebuah bilangan bulat nonnegatif $k$</li>
+<li>(17 poin) $A_i \leq 5000$</li>
+<li>(21 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+
+<h3>Masukan</h3>
+<p>Masukan diberikan dalam format berikut:</p>
+
+<pre>
+N
+A<sub>1</sub> A<sub>2</sub> ... A<sub>N</sub>
+</pre>
+
+<h3>Keluaran</h3>
+<p>Sebuah bilangan yang menyatakan banyaknya kemungkinan barisan $B$ modulo $1\,000\,000\,007$.</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+4
+3 12 12 4
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+<pre>
+15
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+<p>Semua kemungkinan barisan $B$ yang memenuhi aturan adalah sebagai berikut:</p>
+<ol>
+<li>$[1, 3, 12, 1, 4]$</li>
+<li>$[1, 3, 12, 2, 4]$</li>
+<li>$[1, 3, 12, 4, 1]$</li>
+<li>$[1, 3, 12, 4, 2]$</li>
+<li>$[1, 3, 12, 4, 4]$</li>
+<li>$[3, 1, 12, 1, 4]$</li>
+<li>$[3, 1, 12, 2, 4]$</li>
+<li>$[3, 1, 12, 4, 1]$</li>
+<li>$[3, 1, 12, 4, 2]$</li>
+<li>$[3, 1, 12, 4, 4]$</li>
+<li>$[3, 3, 12, 1, 4]$</li>
+<li>$[3, 3, 12, 2, 4]$</li>
+<li>$[3, 3, 12, 4, 1]$</li>
+<li>$[3, 3, 12, 4, 2]$</li>
+<li>$[3, 3, 12, 4, 4]$</li>
+</ol>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+1
+16
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+<pre>
+9
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+<p>Semua kemungkinan barisan $B$ yang memenuhi aturan adalah sebagai berikut:</p>
+<ol>
+<li>$[1, 16]$</li>
+<li>$[2, 16]$</li>
+<li>$[4, 16]$</li>
+<li>$[8, 16]$</li>
+<li>$[16, 1]$</li>
+<li>$[16, 2]$</li>
+<li>$[16, 4]$</li>
+<li>$[16, 8]$</li>
+<li>$[16, 16]$</li>
+</ol>
+
+
+<h3>Contoh Masukan 3</h3>
+<pre>
+24
+8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+</pre>
+
+<h3>Contoh Keluaran 3</h3>
+<pre>
+674257757
+</pre>
+
+<h3>Penjelasan Contoh 3</h3>
+<p>Banyaknya kemungkinan barisan $B$ yang memenuhi aturan adalah $1\,674\,257\,764$. Karena angkanya melebihi $1\,000\,000\,007$, maka keluarkan hasilnya setelah dimodulo.</p>

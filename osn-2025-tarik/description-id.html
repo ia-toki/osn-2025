@@ -1,0 +1,133 @@
+<!-- Title: Larik Tarik -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Untuk memperluas wawasan kulinernya, Bu Dengklek memutuskan untuk berlanglang di kota Malang.
+  Ia pun mengunjungi restoran Umami Makan Malang (UMM).
+  Sembari menunggu makanannya datang, ia mengamati pelayan restoran sedang meracik dengan menarik-narik sekumpulan larik.
+</p>
+
+<p>
+  Operasi <em>tarik</em> pada sebuah larik $a = [a_1, a_2, \ldots, a_n]$ sepanjang $n$ didefinisikan sebagai berikut:
+</p>
+
+<ol>
+  <li>Buatlah larik $a'$ sepanjang $2n$, dengan elemen ke-$(2i-1)$ dan elemen ke-$(2i)$ dari $a'$ diambil dari elemen ke-$i$ dari $a$. Dengan kata lain, $a'[2i-1] = a'[2i] = a[i]$ (untuk $1 \le i \le n$).</li>
+  <li>Potong larik $a'$ menjadi dua larik, masing-masing sepanjang $n$, yaitu larik $a'[1..n]$ dan $a'[n+1..2n]$. Kedua larik ini menjadi hasil dari tarik, sebut saja mereka sebagai <em>potongan kiri</em> dan <em>potongan kanan</em>.</li>
+</ol>
+
+<p>
+  Operasi <em>tarik</em> juga bisa dilakukan sekaligus pada sebarisan larik.
+  Ketika sebarisan larik ditarik, lakukan langkah-langkah berikut:
+</p>
+
+<ol>
+  <li>Lakukan operasi tarik pada masing-masing larik. Ini akan menghasilkan sekumpulan potongan kiri dan potongan kanan.</li>
+  <li>Susun semua potongan kiri pada awal barisan hasil tarik. Urutan penyusunan sesuai dengan urutan asal mereka pada barisan sebelum ditarik.</li>
+  <li>Susun semua potongan kanan pada akhir barisan hasil tarik. Urutan penyusunan sesuai dengan urutan asal mereka pada barisan sebelum ditarik.</li>
+</ol>
+
+<p>
+  Sebagai contoh, bila awalnya hanya terdapat satu larik $[1, 2, 3, 4, 5]$, operasi tarik akan menghasilkan sebuah barisan dengan dua larik: $[1, 1, 2, 2, 3]$ dan $[3, 4, 4, 5, 5]$.
+  Apabila barisan larik ini ditarik lagi, akan menghasilkan barisan $[1, 1, 1, 1, 2], [3, 3, 4, 4, 4], [2, 2, 2, 3, 3], [4, 5, 5, 5, 5]$, dengan urutan tersebut.
+</p>
+
+<img src="render/ilustrasi.png" style="width:800px"/>
+
+<p>
+  Awalnya, Bu Dengklek hanya mengamati sebuah larik $A$ sepanjang $N$.
+  Larik ini kemudian akan dilakukan operasi tarik sebanyak $K$ kali.
+  Bu Dengklek pun penasaran, untuk masing-masing larik dari hasil tarikan, berapakah hasil penjumlahan semua elemen larik tersebut.
+  Apabila banyaknya larik pada hasil akhir melebihi $200\,000$, Bu Dengklek cukup ingin tahu hasil penjumlahan dari $200\,000$ larik pertama.
+  Bantulah Bu Dengklek mencari hasil penjumlahannya!
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \le N, K \le 200\,000$</li>
+  <li>$0 \le A[i] \le 10^9$, untuk semua $1 \le i \le N$</li>
+</ul>
+
+<h3>Subsoal</h3>
+
+<ol>
+  <li>(9 poin) $K \le 3$</li>
+  <li>(13 poin) $K \le 20$; $A[1] = 1$; $A[i] = 0$ (untuk $i \ge 2$)</li>
+  <li>(14 poin) $K \le 20$; $N = 2^k$ untuk suatu bilangan bulat $k$</li>
+  <li>(23 poin) $K \le 20$</li>
+  <li>(24 poin) $N = 3$</li>
+  <li>(17 poin) Tidak ada batasan tambahan.</li>
+</ol>
+
+<h3>Masukan</h3>
+
+<p>
+  Masukan diberikan dalam format berikut:
+</p>
+
+<pre>
+N K
+A[1] A[2] … A[N]
+</pre>
+
+<h3>Keluaran</h3>
+
+<p>
+  Keluarkan hasil penjumlahan dari masing-masing larik pada barisan hasil tarik pada baris yang terpisah.
+  Apabila terdapat lebih dari $200\,000$ larik pada barisan akhir, cukup keluarkan hasil penjumlahan dari $200\,000$ larik pertama.
+</p>
+
+<h3>Contoh Masukan 1</h3>
+
+<pre>
+5 2
+1 2 3 4 5
+</pre>
+
+<h3>Contoh Keluaran 1</h3>
+
+<pre>
+6
+18
+12
+24
+</pre>
+
+<h3>Penjelasan Contoh 1</h3>
+
+<p>
+  Contoh yang diberikan sama seperti dengan contoh yang ada pada deskripsi.
+  Hasil akhir setelah $2$ tarik, dan hasil penjumlahan mereka adalah:
+</p>
+
+<ul>
+  <li>$[1, 1, 1, 1, 2]$: $1 + 1 + 1 + 1 + 2 = 6$</li>
+  <li>$[3, 3, 4, 4, 4]$: $3 + 3 + 4 + 4 + 4 = 18$</li>
+  <li>$[2, 2, 2, 3, 3]$: $2 + 2 + 2 + 3 + 3 = 12$</li>
+  <li>$[4, 5, 5, 5, 5]$: $4 + 5 + 5 + 5 + 5 = 24$</li>
+</ul>
+
+<h3>Contoh Masukan 2</h3>
+
+<pre>
+1 20
+0
+</pre>
+
+<h3>Contoh Keluaran 2</h3>
+
+<pre>
+0
+0
+0
+... (sisa 199997 baris berisi 0)
+</pre>
+
+<h3>Penjelasan Contoh 2</h3>
+
+<p>
+  Hasil akhir setelah $20$ tarik adalah $1048756$ larik yang masing-masing berisi satu elemen $0$.
+  Karena Bu Dengklek hanya tertarik dengan hasil penjumlahan $200\,000$ larik pertama, maka cukup keluarkan $0$ sebanyak $200\,000$ kali.
+</p>

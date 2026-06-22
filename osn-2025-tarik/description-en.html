@@ -1,0 +1,133 @@
+<!-- Title: Twist List -->
+
+<h3>Description</h3>
+
+<p>
+  To broaden her culinary expertise, Bu Dengklek decides to travel to Malang.
+  She visited Umami Malang Meal (UMM) restaurant.
+  While waiting for her food to be served, she observed a restaurant server twisting a bunch of lists.
+</p>
+
+<p>
+  The <em>twist</em> operation on a list $a = [a_1, a_2, \ldots, a_n]$ of length $n$ is defined as follows:
+</p>
+
+<ol>
+  <li>Create a list $a'$ of length $2n$, where the $(2i-1)$-th element and the $(2i)$-th of $a'$ is obtained from the $i$-th element of $a$. In other words, $a'[2i-1] = a'[2i] = a[i]$ (for $1 \le i \le n$).</li>
+  <li>Cut the list $a'$ into two lists, each with length $n$, which are $a'[1..n]$ and $a'[n+1..2n]$. Both lists are the result of the twist, let's call them as the <em>left cut</em> and the <em>right cut</em>.</li>
+</ol>
+
+<p>
+  The <em>twist</em> operation can also be done at once to a sequence of lists.
+  When a sequence of lists is twisted, do the following:
+</p>
+
+<ol>
+  <li>Do the twist operation to each of the lists. This will result in a bunch of left cuts and right cuts.</li>
+  <li>Arrange all the left cuts to the beginning of the resulting sequence. Their orders are according to their order in the sequence before the twist.</li>
+  <li>Arrange all the right cuts to the end of the resulting sequence. Their orders are according to their order before the twist.</li>
+</ol>
+
+<p>
+  For instance, if in the beginning there is only one list $[1, 2, 3, 4, 5]$, the twist operation will result in two lists: $[1, 1, 2, 2, 3]$ and $[3, 4, 4, 5, 5]$.
+  If this sequence of lists is twisted again, it will result in the sequence $[1, 1, 1, 1, 2], [3, 3, 4, 4, 4], [2, 2, 2, 3, 3], [4, 5, 5, 5, 5]$, in that order.
+</p>
+
+<img src="render/ilustrasi.png" style="width:800px"/>
+
+<p>
+  Initially, Bu Dengklek only observe a list $A$ of length $N$.
+  The twist operation will then be done on the list for $K$ times.
+  Bu Dengklek then wonders, for each of the lists after the twist operations, what is the sum of all elements in the list.
+  If the number of lists in the final result exceeds $200\,000$, Bu Dengklek only needs to know the sums from the first $200\,000$ lists.
+  Help Bu Dengklek find the sums!
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>$1 \le N, K \le 200\,000$</li>
+  <li>$0 \le A[i] \le 10^9$, for all $1 \le i \le N$</li>
+</ul>
+
+<h3>Subtasks</h3>
+
+<ol>
+  <li>(9 points) $K \le 3$</li>
+  <li>(13 points) $K \le 20$; $A[1] = 1$; $A[i] = 0$ (for $i \ge 2$)</li>
+  <li>(14 points) $K \le 20$; $N = 2^k$ for some integer $k$</li>
+  <li>(23 points) $K \le 20$</li>
+  <li>(24 points) $N = 3$</li>
+  <li>(17 points) No additional constraints.</li>
+</ol>
+
+<h3>Input</h3>
+
+<p>
+  The input is given in the following format:
+</p>
+
+<pre>
+N K
+A[1] A[2] … A[N]
+</pre>
+
+<h3>Output</h3>
+
+<p>
+  Output the sum of each of the lists in a separate line.
+  If there are more than $200\,000$ lists in the final sequence, you only need to output the sums of the first $200\,000$ lists.
+</p>
+
+<h3>Sample Input 1</h3>
+
+<pre>
+5 2
+1 2 3 4 5
+</pre>
+
+<h3>Sample Output 1</h3>
+
+<pre>
+6
+18
+12
+24
+</pre>
+
+<h3>Explanation of Sample 1</h3>
+
+<p>
+  The given example is the same as the example from the problem description.
+  The final result after $2$ twists and their sums are:
+</p>
+
+<ul>
+  <li>$[1, 1, 1, 1, 2]$: $1 + 1 + 1 + 1 + 2 = 6$</li>
+  <li>$[3, 3, 4, 4, 4]$: $3 + 3 + 4 + 4 + 4 = 18$</li>
+  <li>$[2, 2, 2, 3, 3]$: $2 + 2 + 2 + 3 + 3 = 12$</li>
+  <li>$[4, 5, 5, 5, 5]$: $4 + 5 + 5 + 5 + 5 = 24$</li>
+</ul>
+
+<h3>Sample Input 2</h3>
+
+<pre>
+1 20
+0
+</pre>
+
+<h3>Sample Output 2</h3>
+
+<pre>
+0
+0
+0
+... (remaining 199997 lines containing 0)
+</pre>
+
+<h3>Explanation of Sample 2</h3>
+
+<p>
+  The final result after $20$ twists is $1048756$ lists, each containing an element $0$.
+  Since Bu Dengklek is only interested in the sums of the first $200\,000$ lists, then you only need to output $0$ for $200\,000$ times.
+</p>

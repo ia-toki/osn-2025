@@ -1,0 +1,237 @@
+<!-- Title: Es Batu -->
+
+<h3>Deskripsi</h3>
+
+<p>
+  Pak Dengklek sedang berada di sebuah kebun di dekat kota Malang.
+  Kebun ini berukuran $4 \times 4$, yang baris-barisnya dinomori $1$ sampai $4$ dari atas ke bawah, dan kolom-kolomnya dinomori dari $1$ sampai $4$ dari kiri ke kanan.
+  Petak pada baris $r$ dan kolom $c$ dinyatakan sebagai $(r, c)$.
+
+<p>
+  Setiap petak dari $16$ petak pada kebun ini dapat berupa salah satu dari dua jenis: petak <strong>es</strong> ataupun petak <strong>batu</strong>.
+  Kebun tempat Pak Dengklek <strong>sudah pasti</strong> berupa seperti yang diilustrasikan sebagai berikut, dengan petak biru sebagai petak es, dan petak abu sebagai petak batu.
+</p>
+
+<img src="render/image.png" style="width: 400px"></img>
+
+<p>
+  Pak Dengklek sedang berada di suatu petak.
+  Dalam satu langkah, Pak Dengklek dapat bergerak $1$ petak ke atas, bawah, kiri, atau kanan.
+  Kebun ini ajaib, karena ketika Pak Dengklek:
+</p>
+
+<ul>
+  <li>bergerak ke atas dari baris $1$, ia akan berakhir di baris $4$.</li>
+  <li>bergerak ke kiri dari kolom $1$, ia akan berakhir di kolom $4$.</li>
+  <li>bergerak ke bawah dari baris $4$, ia akan berakhir di baris $1$.</li>
+  <li>bergerak ke kanan dari kolom $4$, ia akan berakhir di kolom $1$.</li>
+</ul>
+
+<p>
+  Anda tidak tahu di mana Pak Dengklek berada saat ini.
+  Anda menantang Pak Dengklek bahwa Anda bisa menebak lokasi Pak Dengklek sekarang dengan menyuruh Pak Dengklek melakukan $Q$ buah gerakan.
+  Pak Dengklek akan pertama memberi tahu Anda jenis petak yang ia tempati sekarang.
+  Kemudian, setiap kali ia melakukan gerakan, ia akan memberi tahu Anda juga petak yang ia tempati setelah melakukan gerakan tersebut.
+</p>
+
+<p>
+  Anda harus bisa menebak petak tempat Pak Dengklek berada pada awalnya, setelah Pak Dengklek melaporkan jenis petak-petak yang ia tempati dari $Q$ gerakan tersebut.
+</p>
+
+<h3>Batasan</h3>
+
+<ul>
+  <li>$1 \le Q \le 256$</li>
+</ul>
+
+<h3>Informasi Tipe Soal</h3>
+
+<p>
+  Soal ini bertipe "interaktif".
+  Pada soal ini, Anda akan berinteraksi dengan program penguji melalui masukan standar (<em>stdin</em>) dan keluaran standar (<em>stdout</em>). Perhatikan interaksi di bawah ini dengan saksama.
+</p>
+
+<h3>Interaksi</h3>
+
+<p>
+  Awalnya, Anda akan memberikan nilai $Q$ dalam satu baris.
+</p>
+
+<p>
+  Kemudian, Pak Dengklek akan memberi tahu jenis petak dengan memberikan <code>ES</code> atau <code>BATU</code> kepada Anda.
+</p>
+
+<p>
+  Kemudian, sebanyak $Q$ kali, Anda menyuruh Pak Dengklek untuk bergerak dengan mengeluarkan:
+</p>
+
+<ul>
+  <li><code>U</code>: untuk bergerak ke atas;
+  <li><code>D</code>: untuk bergerak ke bawah;
+  <li><code>L</code>: untuk bergerak ke kiri;
+  <li><code>R</code>: untuk bergerak ke kanan;
+</ul>
+
+<p>
+  Setiap kali selesai melakukan satu gerakan, Pak Dengklek akan memberi tahu jenis petak dengan memberikan <code>ES</code> atau <code>BATU</code> kepada Anda.
+</p>
+
+<p>
+  Setelah melakukan semua $Q$ gerakan, Anda harus mengeluarkan dua bilangan $r$ dan $c$ dalam satu baris, yang artinya Anda tahu bahwa Pak Dengklek berada pada petak baris $r$ dan kolom $c$ pada awalnya.
+</p>
+
+
+<h3>Penilaian</h3>
+
+<p>Poin Anda bergantung dari nilai $Q$ yang Anda berikan.</p>
+
+<p>Jika Anda tidak berhasil menebak posisi Pak Dengklek pada awalnya dengan benar, maka Anda akan mendapatkan &quot;Wrong Answer&quot;. Anda akan dianggap benar jika Anda berhasil mengeluarkan posisi Pak Dengklek pada awalnya dengan benar, dan Anda akan mendapatkan nilai penuh atau nilai parsial.</p>
+
+<p>Nilai yang didapatkan pada suatu kasus uji dihitung berdasarkan tabel berikut:</p>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Kondisi</th>
+      <th>Poin</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+    <tr>
+      <td>$Q > 16$</td>
+      <td>$10$</td>
+    </tr>
+    <tr>
+      <td>$13 \leq Q \leq 16$</td>
+      <td>$20$</td>
+    </tr>
+    <tr>
+      <td>$9 \leq Q \leq 12$</td>
+      <td>$30$</td>
+    </tr>
+    <tr>
+      <td>$7 \leq Q \leq 8$</td>
+      <td>$40$</td>
+    </tr>
+    <tr>
+      <td>$Q = 6$</td>
+      <td>$55$</td>
+    </tr>
+    <tr>
+      <td>$Q = 5$</td>
+      <td>$70$</td>
+    </tr>
+    <tr>
+      <td>$Q = 4$</td>
+      <td>$85$</td>
+    </tr>
+    <tr>
+      <td>$Q \leq 3$</td>
+      <td>$100$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nilai uang Anda peroleh pada soal ini adalah minimum dari semua nilai yang Anda peroleh dari setiap kasus uji.</p> 
+
+<h3>Contoh Interaksi</h3>
+
+<p>
+  Pada contoh berikut, Pak Dengklek awalnya berada pada petak $(1, 2)$.
+</p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Masukan</th>
+      <th>Keluaran</th>
+      <th>Penjelasan</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td><pre>5</pre></td>
+      <td>Ini berarti Anda menyuruh Pak Dengklek untuk melakukan $5$ gerakan.</td>
+    </tr>
+    <tr>
+      <td><pre>ES</pre></td>
+      <td></td>
+      <td>Pak Dengklek awalnya berada di petak es.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><pre>R</pre></td>
+      <td>Ini berarti Anda menyuruh Pak Dengklek bergerak ke kanan.</td>
+    </tr>
+    <tr>
+      <td><pre>BATU</pre></td>
+      <td></td>
+      <td>Setelah bergerak, Pak Dengklek sekarang berada di petak batu.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><pre>U</pre></td>
+      <td>Ini berarti Anda menyuruh Pak Dengklek bergerak ke atas.</td>
+    </tr>
+    <tr>
+      <td><pre>BATU</pre></td>
+      <td></td>
+      <td>Setelah bergerak, Pak Dengklek sekarang berada di petak batu.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><pre>L</pre></td>
+      <td>Ini berarti Anda menyuruh Pak Dengklek bergerak ke kiri.</td>
+    </tr>
+    <tr>
+      <td><pre>ES</pre></td>
+      <td></td>
+      <td>Setelah bergerak, Pak Dengklek sekarang berada di petak es.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><pre>D</pre></td>
+      <td>Ini berarti Anda menyuruh Pak Dengklek bergerak ke bawah.</td>
+    </tr>
+    <tr>
+      <td><pre>ES</pre></td>
+      <td></td>
+      <td>Setelah bergerak, Pak Dengklek sekarang berada di petak es.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><pre>L</pre></td>
+      <td>Ini berarti Anda menyuruh Pak Dengklek bergerak ke kiri.</td>
+    </tr>
+    <tr>
+      <td><pre>ES</pre></td>
+      <td></td>
+      <td>Setelah bergerak, Pak Dengklek sekarang berada di petak es.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><pre>1 2</pre></td>
+      <td>Anda menebak bahwa Pak Dengklek awalnya berada pada petak $(1, 2)$</td>
+    </tr>
+    <tr>
+      <td>(selesai)</td>
+      <td>(selesai)</td>
+      <td>Interaksi berakhir dan Anda mendapatkan poin pada kasus uji ini.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Peringatan</h3>
+
+<p>Selalu lakukan <em>flush</em> setiap kali setelah program Anda mengeluarkan keluaran.</p>
+
+<ul>
+  <li>Untuk <em>library</em> <code>stdio.h</code> (<code>cstdio</code>):
+
+  <pre>
+fflush(stdout);</pre>
+  </li>
+  <li>Untuk <em>library</em> <code>iostream</code>:
+  <pre>
+std::cout &lt;&lt; std::flush;</pre>
+  </li>
+</ul>
