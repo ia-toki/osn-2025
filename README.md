@@ -11,19 +11,19 @@ Problem repository of **OSN 2025** (also known internationally as **TOKI Indones
 
 | Alias | Slug                             | Title (id)            | Title (en)            | Type                        |
 | ----- | -------------------------------- | --------------------- | --------------------- | --------------------------- |
-| SF-A  | `osn-2025-semifinal-gulali`      | Gulali 17-an          | N/A                   | Batch                       |
-| SF-B  | `osn-2025-semifinal-juragan`     | Juragan Bebek         | N/A                   | Batch                       |
-| SF-C  | `osn-2025-semifinal-spiral`      | Kebun Apel            | N/A                   | Batch (w/ partial scoring)  |
+| SF-A  | `osn-2025-semifinal-gulali`      | Gulali 17-an          | -                     | Batch                       |
+| SF-B  | `osn-2025-semifinal-juragan`     | Juragan Bebek         | -                     | Batch                       |
+| SF-C  | `osn-2025-semifinal-spiral`      | Kebun Apel            | -                     | Batch (w/ partial scoring)  |
 
 ### Final
 
 | Alias | Slug                  | Title (id)                         | Title (en)               | Type        |
 | ----- | --------------------- | ---------------------------------- | ------------------------ | ----------- |
-| 0A    | `osn-2025-balik`      | Bebek Pak Dengklek dan Bu Dengklek | N/A                      | Batch       |
-| 0B    | `osn-2025-lcmxor`     | Pasangan Malang                    | N/A                      | Batch       |
-| 0C    | `osn-2025-batu`       | Es Batu                            | N/A                      | Interactive |
-| 1B    | `osn-2025-hujan`      | Taman Hujan                        | Rain Park                | Batch       |
-| 1A    | `osn-2025-tarik`      | Larik Tarik                        | Twist List               | Batch       |
+| 0A    | `osn-2025-balik`      | Bebek Pak Dengklek dan Bu Dengklek | -                        | Batch       |
+| 0B    | `osn-2025-lcmxor`     | Pasangan Malang                    | -                        | Batch       |
+| 0C    | `osn-2025-batu`       | Es Batu                            | -                        | Interactive |
+| 1A    | `osn-2025-hujan`      | Taman Hujan                        | Rain Park                | Batch       |
+| 1B    | `osn-2025-tarik`      | Larik Tarik                        | Twist List               | Batch       |
 | 1C    | `osn-2025-mikroba`    | Mikroba Brantas                    | Brantas Microbes         | Interactive |
 | 2A    | `osn-2025-kpk`        | Festival KPK                       | LCM Festival             | Batch       |
 | 2B    | `osn-2025-resonansi`  | Pertahanan Malang                  | Malang Defense           | Batch       |
